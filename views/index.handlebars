@@ -1,0 +1,34 @@
+<h1>Hamburger App</h1>
+<form>
+    <input id = 'newBurger' type='text' placeholder='Create a new burger!'>
+    <br><br>
+    <button id='createNewBurgerButton'>Create!</button>
+</form>
+
+<br><br><br>
+
+<div id='section-div'>
+    <section id ='uneaten-section'>
+        <h2>Burgers ready to eat:</h2>
+        {{#each burgers}}
+            {{#unless devoured}}
+                <section class='uneaten-burger'>
+                    <h3>{{id}}) {{burger_name}} <button class = 'eatIt' id={{id}}>Eat it!</button></h3>
+                </section>
+            {{/unless}}
+        {{/each}}
+    </section>
+
+
+    <section id='eaten-section'>
+        <h2>Burgers already eaten:</h2>
+        {{#each burgers}}
+            {{#if devoured}}
+                <section class='devoured-burger'>
+                    <h3>{{id}}) {{burger_name}}</h3>
+                </section>    
+            {{/if}}
+        {{/each}}    
+    </section>
+</div>
+
